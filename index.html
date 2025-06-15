@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontanero Azuqueca - Soluciones Profesionales</title>
+    <meta name="description"
+        content="Fontaneros expertos en Azuqueca de Henares, Alovera, Alcalá de Henares, Meco, Guadalajara y todo el Corredor del Henares. Reparaciones, instalaciones y urgencias 24h. ¡No cobramos desplazamiento!">
+    <!-- Enlace a Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Enlace a Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9evSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Estilos personalizados */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Fuente Inter */
+            background-color: #f8f9fa;
+            /* Color de fondo claro */
+        }
+
+        .navbar {
+            background-color: #007bff;
+            /* Color azul primario para la barra de navegación */
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: #fff !important;
+            /* Texto blanco en la barra de navegación */
+            font-weight: bold;
+        }
+
+        .hero-section {
+            /* Nuevo fondo de imagen con degradado azul */
+            background: linear-gradient(rgba(0, 123, 255, 0.7), rgba(0, 123, 255, 0.7)), url('https://plus.unsplash.com/premium_photo-1663045495725-89f23b57cfc5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 100px 0;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .service-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            margin-bottom: 30px;
+            /* Espacio entre los elementos de servicio */
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-item i {
+            font-size: 3rem;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            /* Espacio entre los testimonios */
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 50px;
+            /* Botones redondeados */
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .footer {
+            background-color: #343a40;
+            /* Fondo oscuro para el pie de página */
+            color: #fff;
+            padding: 40px 0;
+            text-align: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .rounded-elements {
+            border-radius: 15px !important;
+            /* Aplica border-radius a elementos generales */
+        }
+
+        /* Ajustes para elementos de formulario y tarjetas */
+        .form-control,
+        .card {
+            border-radius: 10px;
+        }
+
+        /* Estilos para la galería */
+        .gallery-img {
+            border-radius: 10px;
+            object-fit: cover;
+            width: 100%;
+            height: 250px;
+            /* Altura fija para las imágenes de la galería */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery-img:hover {
+            transform: scale(1.03);
+        }
+
+        /* Estilos para la sección de tarifas */
+        .price-section-enhanced {
+            background-color: #e9f5ff;
+            /* Un azul muy claro para la sección de tarifas */
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .price-card-enhanced {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            /* Más redondeado */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            /* Sombra más pronunciada */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            margin-bottom: 30px;
+            border: 1px solid #cceeff;
+            /* Borde sutil */
+        }
+
+        .price-card-enhanced:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .price-card-enhanced h3 {
+            color: #007bff;
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+
+        .price-card-enhanced .price {
+            font-size: 3.5rem;
+            /* Más grande */
+            font-weight: bolder;
+            color: #343a40;
+            margin-bottom: 30px;
+            display: block;
+            /* Para que small esté en su propia línea */
+        }
+
+        .price-card-enhanced .price small {
+            font-size: 1.5rem;
+            color: #6c757d;
+        }
+
+        .price-card-enhanced .list-group-item {
+            border: none;
+            padding: 10px 0;
+            font-size: 1.05rem;
+            color: #555;
+        }
+
+        .price-card-enhanced .list-group-item i {
+            color: #28a745;
+            /* Verde para los checks */
+            margin-right: 10px;
+        }
+
+        .price-card-enhanced .btn-primary {
+            width: 80%;
+            /* Botón más ancho */
+            margin-top: 25px;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .no-displacement-note {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #dc3545;
+            /* Color rojo para el aviso de no desplazamiento */
+            margin-top: 40px;
+            background-color: #ffe0e0;
+            padding: 15px 25px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la nueva sección "Innovación" */
+        .innovation-section {
+            background-color: #fff;
+            padding: 80px 0;
+            border-radius: 20px;
+            margin-bottom: 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .innovation-content h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #343a40;
+        }
+
+        .innovation-content p {
+            font-size: 1.1rem;
+            color: #6c757d;
+            line-height: 1.8;
+        }
+
+        .innovation-image-container {
+            position: relative;
+            padding: 20px;
+            background-color: #f0f2f5;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 300px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .innovation-image {
+            width: 100%;
+            max-width: 400px;
+            /* Limit image size for aesthetics */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-section-bottom {
+            background: linear-gradient(to right, #6f42c1, #dc3545);
+            /* Degradado púrpura a rojo */
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin-top: 60px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-section-bottom h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+        }
+
+        .cta-section-bottom .btn-light {
+            background-color: #fff;
+            color: #dc3545;
+            border-color: #fff;
+            border-radius: 50px;
+            padding: 12px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+
+        .cta-section-bottom .btn-light:hover {
+            background-color: #f8f9fa;
+            color: #c82333;
+        }
+
+        /* Estilos para el contenedor flotante de WhatsApp y texto */
+        .whatsapp-container-float {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            display: flex;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .whatsapp-text-float {
+            background-color: #343a40;
+            /* Fondo oscuro para el texto */
+            color: #FFF;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-right: 10px;
+            /* Espacio entre el texto y el botón */
+            font-size: 1rem;
+            white-space: nowrap;
+            /* Evita que el texto se rompa en varias líneas */
+            box-shadow: 2px 2px 3px #999;
+        }
+
+        .whatsapp-float {
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: #FFF;
+            /* Mantener el color blanco en hover */
+        }
+
+        .whatsapp-float i {
+            margin-top: 0;
+            /* Ajuste para centrar el icono */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top rounded-bottom-elements">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fa-solid fa-wrench me-2"></i>Fontanero Azuqueca
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tarifas">Tarifas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#innovacion">Innovación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeria">Galería</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#adicionales">Otros Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-4">Fontanero en Azuqueca de Henares y el Corredor del Henares</h1>
+            <p class="lead mb-5">Expertos en fontanería en Azuqueca de Henares, Alovera, Alcalá de Henares, Meco,
+                Guadalajara, y ciudades colindantes. Su satisfacción es nuestra prioridad.</p>
+            <a href="#contacto" class="btn btn-primary btn-lg">Solicitar Presupuesto Gratuito</a>
+        </div>
+    </section>
+
+    <!-- Pricing Section (Enhanced and Moved) -->
+    <section id="tarifas" class="price-section-enhanced">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Nuestras Tarifas de Fontanería Transparentes</h2>
+                    <p class="lead text-muted">Precios claros y sin sorpresas para nuestros servicios de fontanería.
+                        ¡Siempre con la mejor relación calidad-precio!</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-4">
+                    <div class="price-card-enhanced">
+                        <h3>Tarifa Estándar</h3>
+                        <div class="price">30<small> €/hora</small></div>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Horario Laboral
+                                (L-V)</li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Servicios Generales
+                                de Fontanería</li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Presupuesto
+                                Gratuito</li>
+                            <li class="list-group-item text-success fw-bold"><i
+                                    class="fa-solid fa-check-circle me-2"></i>¡Sin Costo de Desplazamiento!</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary">Solicitar Servicio Estándar</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="price-card-enhanced">
+                        <h3>Tarifa Fin de Semana</h3>
+                        <div class="price">60<small> €/hora</small></div>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Sábados y Domingos
+                            </li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Servicios Urgentes
+                                y No Urgentes</li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Atención Rápida
+                                Garantizada</li>
+                            <li class="list-group-item text-success fw-bold"><i
+                                    class="fa-solid fa-check-circle me-2"></i>¡Sin Costo de Desplazamiento!</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary">Solicitar Servicio Fin de Semana</a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="price-card-enhanced">
+                        <h3>Tarifa Urgencias 24h</h3>
+                        <div class="price">120<small> €/hora</small></div>
+                        <ul class="list-group list-group-flush mb-4">
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Emergencias (24/7)
+                            </li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Respuesta Inmediata
+                                en Azuqueca</li>
+                            <li class="list-group-item"><i class="fa-solid fa-check-circle me-2"></i>Solución
+                                Prioritaria a tu Problema</li>
+                            <li class="list-group-item text-success fw-bold"><i
+                                    class="fa-solid fa-check-circle me-2"></i>¡Sin Costo de Desplazamiento!</li>
+                        </ul>
+                        <a href="#contacto" class="btn btn-primary">Llamar para Urgencia 24h</a>
+                    </div>
+                </div>
+            </div>
+            <p class="no-displacement-note">
+                <i class="fa-solid fa-truck-moving me-2"></i> ¡No cobramos desplazamiento en Azuqueca de Henares ni en
+                sus alrededores!
+            </p>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovacion" class="section-padding">
+        <div class="container">
+            <div class="innovation-section">
+                <div class="row align-items-center">
+                    <div class="col-md-6 mb-4 mb-md-0 innovation-content px-5">
+                        <span class="badge bg-primary text-light mb-3 rounded-pill">Tecnología</span>
+                        <h2 class="mb-4">Detección de Fugas con Tecnología de Vanguardia</h2>
+                        <p>En Fontanería Rápida, utilizamos equipos avanzados para localizar con precisión fugas de
+                            agua, incluso las más ocultas, sin necesidad de obras invasivas.</p>
+                        <p>Nuestra inversión en tecnología de punta nos permite ofrecer soluciones rápidas, limpias y
+                            eficientes, minimizando molestias y costes para nuestros clientes en Azuqueca de Henares y
+                            alrededores.</p>
+                    </div>
+                    <div class="col-md-6 innovation-image-container">
+                        <img src="data:image/jpeg;base64,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"
+                            class="innovation-image" alt="Detector de fugas de agua"
+                            onerror="this.style.display='none'">
+                    </div>
+                </div>
+            </div>
+            <!-- Call to Action Block at the bottom -->
+            <div class="cta-section-bottom">
+                <h3>¿Aún no estás convencido de nuestra profesionalidad?</h3>
+                <p class="lead mb-4">Descubre por qué somos la mejor opción para tus necesidades de fontanería y
+                    reformas en el Corredor del Henares.</p>
+                <a href="#contacto" class="btn btn-light btn-lg">Solicita tu Presupuesto Ahora</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Nuestros Servicios de Fontanería en tu Zona</h2>
+                    <p class="lead text-muted">Ofrecemos una amplia gama de servicios de fontanería para hogares y
+                        negocios en Azuqueca de Henares, Alovera, Meco, Alcalá de Henares y más.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-sink"></i>
+                        <h3>Reparación de Fugas</h3>
+                        <p>Localizamos y reparamos fugas de agua de forma rápida y eficiente para evitar mayores daños
+                            en Azuqueca y alrededores.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-toilet"></i>
+                        <h3>Desatascos Rápidos</h3>
+                        <p>Eliminamos cualquier tipo de obstrucción en tuberías, desagües y alcantarillado en toda la
+                            zona del Henares.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-water-ladder"></i>
+                        <h3>Instalaciones de Fontanería</h3>
+                        <p>Realizamos instalaciones completas de sistemas de fontanería en obras nuevas y reformas en
+                            Azuqueca y municipios cercanos.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-faucet"></i>
+                        <h3>Grifería y Sanitarios</h3>
+                        <p>Instalación y reparación de todo tipo de grifos, inodoros, lavabos y otros sanitarios en su
+                            domicilio.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-temperature-arrow-up"></i>
+                        <h3>Calentadores de Agua</h3>
+                        <p>Mantenimiento, reparación e instalación de calentadores de agua eléctricos y de gas en
+                            Guadalajara y Madrid.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-gas-pump"></i>
+                        <h3>Instalaciones de Gas</h3>
+                        <p>Trabajos certificados en instalaciones de gas natural y propano, con total seguridad en toda
+                            la región.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Nuestros Proyectos Recientes de Fontanería</h2>
+                    <p class="lead text-muted">Explora algunos de nuestros trabajos y la calidad de nuestro servicio en
+                        Azuqueca y las ciudades próximas.</p>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Se ha eliminado la primera imagen según la solicitud -->
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/2205544986/es/foto/fontanero-estrechando-la-mano-de-una-mujer-despu%C3%A9s-de-terminar-su-trabajo-en-la-cocina.webp?a=1&b=1&s=612x612&w=0&k=20&c=GPiYxOOjQz__b56QRHT7E4qWGREZxT-R0IZZZnO00nk="
+                        class="img-fluid gallery-img" alt="Fontanero despidiéndose de cliente tras trabajo"
+                        onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/2188182926/es/foto/fontanero-desatascando-el-desag%C3%BCe-de-la-ducha-bloqueado-con-chorro-de-agua-en-el-ba%C3%B1o-de-la.webp?a=1&b=1&s=612x612&w=0&k=20&c=5YzpSerN6Xw09JcX7O6g-TBTmNBeco7gTux0OQB_uWY="
+                        class="img-fluid gallery-img" alt="Fontanero desatascando desagüe de ducha"
+                        onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/2156183388/es/foto/a-man-installs-a-heating-system-in-a-house-and-checks-the-pipes-con-una-llave.webp?a=1&b=1&s=612x612&w=0&k=20&c=WCQFPIIyprulRlF6wfxgM8fz-SsJnafdQQaJL4pPUXA="
+                        class="img-fluid gallery-img" alt="Hombre instalando sistema de calefacción"
+                        onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/1435449600/es/foto/fontanero-explicando-a-un-cliente-el-problema-con-el-fregadero-de-su-cocina.jpg?s=612x612&w=0&k=20&c=d81SladdO0huC4iBHqQZaUmsaAexQhrdga7cGdsw64E="
+                        class="img-fluid gallery-img" alt="Fontanero explicando problema de fregadero a cliente"
+                        onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/1943281603/es/foto/plomero-profesional-en-fregadero-de-fijaci%C3%B3n-uniforme-en-interiores.jpg?s=612x612&w=0&k=20&c=OoQRR-V7jJ25EW7pD62JrJAhgvWu_7MlD6BONscL2_4="
+                        class="img-fluid gallery-img" alt="Fontanero profesional arreglando fregadero"
+                        onerror="this.style.display='none'">
+                </div>
+                <div class="col-md-4 mb-4">
+                    <img src="https://media.istockphoto.com/id/1300212975/es/foto/mujer-en-casa-llamando-a-un-fontanero-sobre-una-tuber%C3%ADa-con-fugas-en-su-fregadero.jpg?s=612x612&w=0&k=20&c=iKY3f1rbmekDOSLtpYbnuo3VmYHDDtfrRWxTmwOgh44="
+                        class="img-fluid gallery-img" alt="Mujer llamando a fontanero por fuga en fregadero"
+                        onerror="this.style.display='none'">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Services Section -->
+    <section id="adicionales" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Otros Servicios Profesionales de Construcción y Reformas</h2>
+                    <p class="lead text-muted">Además de fontanería, ofrecemos soluciones integrales para tus proyectos
+                        de obra y reforma en Azuqueca y sus municipios vecinos.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-shovel"></i>
+                        <h3>Excavaciones y Movimientos de Tierra</h3>
+                        <p>Realizamos trabajos de excavación para cimientos, zanjas y nivelaciones de terreno,
+                            esenciales para cualquier obra.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-trowel-bricks"></i>
+                        <h3>Hormigonado y Cimentaciones</h3>
+                        <p>Vertido y acabado de hormigón para losas, pavimentos y estructuras sólidas, garantizando la
+                            estabilidad de tu proyecto.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-cube"></i>
+                        <h3>Encofrados Profesionales</h3>
+                        <p>Diseño y montaje de estructuras de encofrado para hormigón, adaptadas a cada proyecto y
+                            garantizando acabados perfectos.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-paint-roller"></i>
+                        <h3>Reformas Integrales de Viviendas y Locales</h3>
+                        <p>Gestionamos y ejecutamos reformas completas de viviendas, locales y oficinas, desde la
+                            planificación hasta el último detalle.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-bars-progress"></i>
+                        <h3>Ferralla y Estructuras Metálicas</h3>
+                        <p>Preparación y colocación de armaduras de acero para estructuras de hormigón armado, un
+                            servicio clave para la solidez de tu construcción.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="service-item">
+                        <i class="fa-solid fa-house-chimney-crack"></i>
+                        <h3>Detección y Reparación de Humedades</h3>
+                        <p>Soluciones profesionales para la detección y erradicación de problemas de humedad,
+                            protegiendo su propiedad.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="nosotros" class="section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <img src="https://placehold.co/600x400/007bff/ffffff?text=Equipo+Profesional"
+                        class="img-fluid rounded-elements shadow-lg" alt="Equipo de Fontaneros en Azuqueca de Henares">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="display-5 fw-bold mb-4">Fontaneros de Confianza con Más de 20 Años de Experiencia</h2>
+                    <p class="lead text-muted">Somos una empresa familiar con una larga trayectoria en el sector de la
+                        fontanería, orgullosos de servir a Azuqueca de Henares, Alcalá de Henares, Guadalajara, Alovera,
+                        Meco, Cabanillas del Campo, Villanueva de la Torre, Torrejón del Rey, Marchamalo, San Fernando
+                        de Henares y Torrejón de Ardoz.</p>
+                    <p class="text-muted">Nuestro equipo de fontaneros altamente cualificados está listo para resolver
+                        cualquier problema, desde pequeñas reparaciones hasta grandes instalaciones. Utilizamos las
+                        últimas técnicas y herramientas para garantizar un trabajo duradero y eficiente en toda la zona
+                        del Corredor del Henares.</p>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fa-solid fa-check-circle text-primary me-2"></i>Atención 24/7 para emergencias de
+                            fontanería.</li>
+                        <li><i class="fa-solid fa-check-circle text-primary me-2"></i>Presupuestos claros y sin
+                            compromiso en toda la provincia.</li>
+                        <li><i class="fa-solid fa-check-circle text-primary me-2"></i>Garantía en todos nuestros
+                            trabajos y satisfacción del cliente.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonios" class="section-padding bg-light">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Opiniones de Nuestros Clientes en Azuqueca y Alrededores</h2>
+                    <p class="lead text-muted">La satisfacción de nuestros clientes es nuestra mejor carta de
+                        presentación.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-item">
+                        <p class="fst-italic">"Servicio excepcional. Vinieron en menos de una hora a Azuqueca y
+                            arreglaron la fuga de inmediato. ¡Muy recomendados!"</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="https://placehold.co/60x60/ced4da/6c757d?text=JS" class="rounded-circle me-3"
+                                alt="Cliente Juan S.">
+                            <div>
+                                <h5 class="mb-0">Juan S.</h5>
+                                <p class="text-muted small">Azuqueca de Henares</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-item">
+                        <p class="fst-italic">"Instalaron el calentador de agua sin problemas en Alcalá de Henares, todo
+                            muy limpio y profesional. Excelente relación calidad-precio."</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="https://placehold.co/60x60/ced4da/6c757d?text=AM" class="rounded-circle me-3"
+                                alt="Cliente Ana M.">
+                            <div>
+                                <h5 class="mb-0">Ana M.</h5>
+                                <p class="text-muted small">Alcalá de Henares</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-item">
+                        <p class="fst-italic">"Necesité un desatasco urgente en Alovera y respondieron al instante. Muy
+                            profesionales y eficientes. ¡Gracias!"</p>
+                        <div class="d-flex align-items-center mt-3">
+                            <img src="https://placehold.co/60x60/ced4da/6c757d?text=CR" class="rounded-circle me-3"
+                                alt="Cliente Carlos R.">
+                            <div>
+                                <h5 class="mb-0">Carlos R.</h5>
+                                <p class="text-muted small">Alovera</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section-padding">
+        <div class="container">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="display-5 fw-bold">Contacta con tu Fontanero en Azuqueca de Henares y Alrededores</h2>
+                    <p class="lead text-muted">Estamos disponibles para atenderte. Envíanos un mensaje o llámanos.
+                        Ofrecemos servicios de fontanería y reformas en: Azuqueca de Henares, Alovera, Meco, Alcalá de
+                        Henares, Villanueva de la Torre, Cabanillas del Campo, Torrejón del Rey, Marchamalo,
+                        Guadalajara, San Fernando de Henares y Torrejón de Ardoz.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card p-4 shadow-lg rounded-elements">
+                        <div class="card-body">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre"
+                                        required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email"
+                                        placeholder="tu.email@ejemplo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                                    <input type="tel" class="form-control" id="telefono"
+                                        placeholder="Tu número de teléfono">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="5"
+                                        placeholder="Describe tu necesidad" required></textarea>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 text-center">
+                <div class="col-md-4">
+                    <i class="fa-solid fa-phone fa-3x text-primary mb-3"></i>
+                    <h4>Llámanos Ahora</h4>
+                    <p class="text-muted">+34 123 456 789</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-envelope fa-3x text-primary mb-3"></i>
+                    <h4>Envíanos un Correo</h4>
+                    <p class="text-muted">info@fontaneriaraapida.es</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-location-dot fa-3x text-primary mb-3"></i>
+                    <h4>Nuestra Zona de Servicio</h4>
+                    <p class="text-muted">Cubrimos Azuqueca de Henares y todo el Corredor del Henares.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">&copy; 2025 Fontanería Rápida. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Contenedor flotante de WhatsApp y texto -->
+    <div class="whatsapp-container-float">
+        <span class="whatsapp-text-float">Habla con Luis</span>
+        <a href="https://wa.me/34689456107" class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
