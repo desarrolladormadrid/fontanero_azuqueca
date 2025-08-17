@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fontanería Veloz Azuqueca: Su Solución de Confianza</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(28, 55, 90, 0.8), rgba(28, 55, 90, 0.8)), url('https://placehold.co/1920x1080/1e3a8a/ffffff?text=Fontanero+Profesional');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .promo-card {
+            transition: all 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Estilos para el Asistente IA */
+        #chat-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #2563eb;
+            /* blue-600 */
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+
+        #chat-bubble:hover {
+            transform: scale(1.1);
+        }
+
+        #chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            width: 350px;
+            max-width: 90vw;
+            height: 450px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            transition: opacity 0.3s, transform 0.3s;
+            transform-origin: bottom right;
+        }
+
+        .hidden-chat {
+            opacity: 0;
+            transform: scale(0.5);
+            pointer-events: none;
+        }
+
+        .chat-header {
+            background-color: #1d4ed8;
+            /* blue-700 */
+            color: white;
+            padding: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .message {
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .message.user {
+            background-color: #e5e7eb;
+            /* gray-200 */
+            color: #1f2937;
+            /* gray-800 */
+            align-self: flex-end;
+        }
+
+        .message.ai {
+            background-color: #dbeafe;
+            /* blue-100 */
+            color: #1e3a8a;
+            /* blue-900 */
+            align-self: flex-start;
+        }
+
+        .message.typing {
+            color: #6b7280;
+            /* gray-500 */
+            font-style: italic;
+        }
+
+        .chat-input-form {
+            display: flex;
+            padding: 0.5rem;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .chat-input {
+            flex-grow: 1;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            outline: none;
+        }
+
+        .chat-send-btn {
+            background-color: #2563eb;
+            /* blue-600 */
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- Header Section -->
+    <header class="bg-white py-4 px-4 sm:px-8 lg:px-16 sticky top-0 z-50 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-blue-800 font-black text-2xl tracking-wider">
+                FONTANERÍA
+                <span class="block text-lg text-blue-600">VELOZ AZUQUECA</span>
+            </div>
+            <nav class="hidden lg:flex space-x-8 font-medium text-gray-600">
+                <a href="#services" class="hover:text-blue-600">Servicios</a>
+                <a href="#urgencias" class="hover:text-blue-600">Urgencias 24h</a>
+                <a href="#promotions" class="hover:text-blue-600">Promociones</a>
+                <a href="#about" class="hover:text-blue-600">Quiénes Somos</a>
+                <a href="#blog" class="hover:text-blue-600">Consejos</a>
+            </nav>
+            <a href="tel:999999999"
+                class="bg-blue-600 text-white font-bold py-3 px-6 rounded-md hover:bg-blue-700 cta-button flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.518.759a11.024 11.024 0 004.755 4.755l.76-1.518a1 1 0 011.06-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+                Llamar Ahora
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section (Página de Inicio) -->
+    <section class="hero-bg text-white relative py-20">
+        <div class="container mx-auto grid lg:grid-cols-2 gap-12 items-center px-4">
+            <div class="z-10 text-center lg:text-left">
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mt-4">Fontaneros de Confianza en Azuqueca de
+                    Henares.</h1>
+                <p class="mt-4 text-lg md:text-xl max-w-xl mx-auto lg:mx-0">Soluciones Rápidas y Eficaces para todas tus
+                    necesidades de fontanería. Urgencias 24 horas a tu disposición.</p>
+                <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 font-bold text-center">
+                    <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+                        <p>✓ Rapidez</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+                        <p>✓ Garantía</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm p-4 rounded-lg">
+                        <p>✓ Precios Competitivos</p>
+                    </div>
+                </div>
+            </div>
+            <div class="z-10 bg-white p-8 rounded-lg shadow-2xl text-gray-800">
+                <h2 class="text-2xl font-bold text-center">Pide Presupuesto Gratis</h2>
+                <p class="text-center mt-2 text-gray-600">Rellena el formulario y te contactamos en minutos.</p>
+                <form action="#" method="POST" class="mt-6 space-y-4">
+                    <input type="text" name="name" required
+                        class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tu Nombre">
+                    <input type="tel" name="phone" required
+                        class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Tu Teléfono">
+                    <textarea name="message" rows="3" required
+                        class="block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                        placeholder="Describe brevemente tu necesidad..."></textarea>
+                    <button type="submit"
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 cta-button">
+                        Solicitar Presupuesto
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Nuestros Servicios de Fontanería</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Fontanería General</h3>
+                    <p class="mt-4 text-gray-600">Instalaciones y reparaciones de tuberías, grifería, sanitarios, etc.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Calefacción</h3>
+                    <p class="mt-4 text-gray-600">Instalación, reparación y mantenimiento de calderas, radiadores y
+                        sistemas de calefacción.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Desatascos</h3>
+                    <p class="mt-4 text-gray-600">Servicio especializado en desatascos de tuberías, desagües, arquetas y
+                        bajantes.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Fugas de Agua</h3>
+                    <p class="mt-4 text-gray-600">Detección y reparación de fugas con tecnología avanzada para minimizar
+                        las obras.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Termos y Calentadores</h3>
+                    <p class="mt-4 text-gray-600">Instalación y reparación de termos eléctricos y calentadores de gas.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-blue-800">Reformas de Baños y Cocinas</h3>
+                    <p class="mt-4 text-gray-600">Servicio integral de fontanería para tus proyectos de reforma.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgencias 24H Section -->
+    <section id="urgencias" class="bg-red-600 text-white">
+        <div class="container mx-auto px-4 py-20 text-center">
+            <h2 class="text-4xl font-bold">¿Tienes una Urgencia?</h2>
+            <p class="mt-4 text-xl max-w-2xl mx-auto">Estamos disponibles 24 horas, 365 días al año. Acudimos a tu
+                domicilio en Azuqueca y alrededores de forma inmediata.</p>
+            <a href="tel:999999999"
+                class="mt-8 inline-block bg-white text-red-600 font-bold text-xl py-4 px-12 rounded-lg hover:bg-red-50 cta-button">
+                Llamar a Urgencias - 999 999 999
+            </a>
+        </div>
+    </section>
+
+    <!-- Promotions Section -->
+    <section id="promotions" class="py-16 lg:py-24 bg-blue-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-gray-800">Promociones y Descuentos</h2>
+            <p class="text-lg text-gray-600 mt-2">Ahorra con nuestras ofertas exclusivas.</p>
+            <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="promo-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-blue-800">15% DTO. Bienvenida</h3>
+                    <p class="mt-2 text-gray-600">Regístrate en nuestra web y obtén un descuento en tu primer servicio.
+                    </p>
+                </div>
+                <div class="promo-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-blue-800">Plan Renove</h3>
+                    <p class="mt-2 text-gray-600">Descuentos especiales al instalar calderas y termos más eficientes.
+                    </p>
+                </div>
+                <div class="promo-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-blue-800">10% DTO. Fidelidad</h3>
+                    <p class="mt-2 text-gray-600">Premiamos tu confianza con un descuento en futuros servicios.</p>
+                </div>
+                <div class="promo-card bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-blue-800">Ofertas Estacionales</h3>
+                    <p class="mt-2 text-gray-600">Revisa tu calefacción en otoño y ahorra con nuestras campañas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 lg:py-24">
+        <div class="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+                <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Nuestro+Equipo"
+                    alt="Equipo de Fontanería Veloz Azuqueca" class="rounded-lg shadow-xl">
+            </div>
+            <div>
+                <h2 class="text-4xl font-bold text-gray-800">Quiénes Somos</h2>
+                <p class="mt-4 text-lg text-gray-600">"Fontanería Veloz Azuqueca" es una empresa familiar con más de 20
+                    años de experiencia en el sector. Nuestro mayor compromiso es ofrecer un servicio de calidad,
+                    honesto y eficiente a todos nuestros vecinos de Azuqueca de Henares. Creemos en el trabajo bien
+                    hecho y en la satisfacción del cliente como nuestra mejor carta de presentación.</p>
+                <div class="mt-6">
+                    <a href="#contact" class="text-blue-600 font-bold text-lg hover:underline">Contacta con nosotros
+                        &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-16 lg:py-24 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Blog con Consejos Útiles</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/600x400/dbeafe/1e3a8a?text=Consejo+1"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Consejos para evitar atascos en casa</h3>
+                        <p class="mt-2 text-gray-600">Pequeños gestos diarios que pueden ahorrarte grandes problemas en
+                            tus tuberías.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Leer más</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/600x400/dbeafe/1e3a8a?text=Consejo+2"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">Cómo mantener tu caldera en perfecto estado</h3>
+                        <p class="mt-2 text-gray-600">Aprende a cuidar tu caldera para mejorar su eficiencia y alargar
+                            su vida útil.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Leer más</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <img src="https://placehold.co/600x400/dbeafe/1e3a8a?text=Consejo+3"
+                        class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold">¿Cuándo cambiar la grifería de tu baño?</h3>
+                        <p class="mt-2 text-gray-600">Señales que indican que ha llegado el momento de renovar tus
+                            grifos.</p>
+                        <a href="#" class="mt-4 inline-block text-blue-600 font-semibold hover:underline">Leer más</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 lg:py-24">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-gray-800 mb-12 text-center">Contacta con Nosotros</h2>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-lg">
+                <form action="#" method="POST" class="space-y-6">
+                    <div>
+                        <label for="name-contact" class="block text-sm font-medium text-gray-700">Nombre</label>
+                        <input type="text" name="name-contact" id="name-contact" required
+                            class="mt-1 block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="email-contact" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" name="email-contact" id="email-contact" required
+                            class="mt-1 block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="message-contact" class="block text-sm font-medium text-gray-700">Mensaje</label>
+                        <textarea id="message-contact" name="message-contact" rows="4" required
+                            class="mt-1 block w-full px-4 py-3 rounded-md border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit"
+                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-lg font-bold text-white bg-blue-600 hover:bg-blue-700 cta-button">
+                            Enviar Mensaje
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4 sm:px-8 lg:px-16 text-center">
+            <div class="text-white font-black text-2xl tracking-wider mb-4">
+                FONTANERÍA
+                <span class="block text-lg text-blue-400">VELOZ AZUQUECA</span>
+            </div>
+            <p>&copy; 2025 Fontanería Veloz Azuqueca. Todos los derechos reservados.</p>
+            <p class="mt-2">Tu servicio de fontanería de confianza en Azuqueca de Henares.</p>
+            <div class="mt-6 flex justify-center space-x-6">
+                <a href="#" class="hover:text-white">Facebook</a>
+                <a href="#" class="hover:text-white">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Asistente IA -->
+    <div id="chat-bubble">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M18 10c0 3.866-3.582 7-8 7a8.832 8.832 0 01-4.132-.987L2.95 18.28a.5.5 0 01-.65-.65l1.267-2.914A7.004 7.004 0 012 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM4.75 9.25a.75.75 0 01.75-.75h9a.75.75 0 010 1.5h-9a.75.75 0 01-.75-.75zm.75 2.5a.75.75 0 000 1.5h5a.75.75 0 000-1.5h-5z"
+                clip-rule="evenodd" />
+        </svg>
+    </div>
+    <div id="chat-window" class="hidden-chat">
+        <div class="chat-header">Asistente de Fontanería IA</div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- Los mensajes se añadirán aquí -->
+        </div>
+        <form id="chat-input-form" class="chat-input-form">
+            <input type="text" id="chat-input" class="chat-input" placeholder="Describe tu problema...">
+            <button type="submit" class="chat-send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path
+                        d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                </svg>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        const chatBubble = document.getElementById('chat-bubble');
+        const chatWindow = document.getElementById('chat-window');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInputForm = document.getElementById('chat-input-form');
+        const chatInput = document.getElementById('chat-input');
+        let chatHistory = [];
+
+        // Toggle para abrir/cerrar el chat
+        chatBubble.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden-chat');
+            if (!chatWindow.classList.contains('hidden-chat') && chatMessages.children.length === 0) {
+                addAiMessage("¡Hola! Soy tu asistente virtual de Fontanería Veloz. ¿En qué puedo ayudarte hoy? Describe brevemente tu problema.");
+            }
+        });
+
+        // Enviar mensaje
+        chatInputForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const userMessage = chatInput.value.trim();
+            if (userMessage) {
+                addUserMessage(userMessage);
+                chatInput.value = '';
+                addTypingIndicator();
+
+                const aiResponse = await getGeminiResponse(userMessage);
+                removeTypingIndicator();
+                addAiMessage(aiResponse);
+            }
+        });
+
+        function addUserMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message user';
+            messageElement.textContent = message;
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addAiMessage(message) {
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message ai';
+            messageElement.innerHTML = message; // Usamos innerHTML para poder añadir enlaces
+            chatMessages.appendChild(messageElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addTypingIndicator() {
+            const typingElement = document.createElement('div');
+            typingElement.className = 'message ai typing';
+            typingElement.id = 'typing-indicator';
+            typingElement.textContent = 'Escribiendo...';
+            chatMessages.appendChild(typingElement);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typing-indicator');
+            if (typingIndicator) {
+                chatMessages.removeChild(typingIndicator);
+            }
+        }
+
+        async function getGeminiResponse(userMessage) {
+            const userMessageCount = chatHistory.filter(m => m.role === 'user').length + 1;
+
+            // Construimos el historial para la API
+            let apiHistory = [];
+            chatHistory.forEach(item => {
+                apiHistory.push({ role: item.role, parts: item.parts });
+            });
+            apiHistory.push({ role: "user", parts: [{ text: userMessage }] });
+
+            const systemPrompt = `
+Eres 'Fonti', un asistente de IA para 'Fontanería Veloz Azuqueca'. Tu meta es convertir al usuario en cliente.
+Tu comportamiento se basa en estas reglas estrictas:
+1.  **Estima tiempo y coste:** Basado en la descripción del usuario, estima las horas de trabajo (ej. 1-2 horas, 3-4 horas) y calcula un coste APROXIMADO sabiendo que la hora cuesta 40 euros. Debes presentar esto como una "estimación inicial no vinculante". Por ejemplo: "Un trabajo así suele llevar entre 1 y 2 horas, por lo que la estimación sería de 40€ a 80€. Un técnico te lo confirmará en el sitio."
+2.  **Da UN consejo útil y SEGURO:** Junto a la estimación, dale UN consejo sencillo y seguro que podría intentar. NUNCA sugieras usar herramientas complejas, químicos peligrosos o desmontar nada.
+3.  **Regla de los 3 mensajes:** Si este es el TERCER mensaje del usuario (o el sexto, noveno, etc.), tu respuesta DEBE ser una recomendación directa para contactarnos. IGNORA el consejo y la estimación en ese mensaje y céntrate en la llamada a la acción.
+4.  **Prioriza la seguridad:** Si el problema suena complicado o peligroso (ej. "huele a gas", "inundación", "caldera hace ruido raro"), ignora la estimación y la regla de los 3 mensajes y recomienda contactar a un profesional INMEDIATAMENTE.
+5.  **Llamada a la Acción (CTA):** Cuando recomiendes contactar, sé persuasivo: "Para tu seguridad y evitar un problema mayor, lo mejor es que un técnico lo revise. El presupuesto es gratis y sin compromiso." Incluye siempre los teléfonos: Urgencias 999 999 999 y Cita Previa 600 123 456.
+6.  Sé breve, amigable y profesional.
+El usuario actual ha enviado ${userMessageCount} mensajes. Aplica la regla de los 3 mensajes si corresponde.`;
+
+            const payload = {
+                contents: [
+                    { role: "model", parts: [{ text: systemPrompt }] },
+                    ...apiHistory
+                ]
+            };
+
+            const apiKey = "AIzaSyC6LaXhR1JvHyobe1U0UQyDoQcSd3w7la8"; // La clave se proporcionará en el entorno de ejecución
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error en la API: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+
+                    const aiText = result.candidates[0].content.parts[0].text;
+                    // Guardamos el historial completo
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    chatHistory.push({ role: "model", parts: [{ text: aiText }] });
+
+                    return aiText.replace(/(\d{3}\s?\d{3}\s?\d{3})/g, '<a href="tel:$1" class="font-bold text-blue-600">$1</a>');
+                } else {
+                    const fallbackResponse = "Lo siento, no he podido procesar tu solicitud. Por favor, llámanos directamente al 999 999 999.";
+                    chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                    chatHistory.push({ role: "model", parts: [{ text: fallbackResponse }] });
+                    return fallbackResponse;
+                }
+            } catch (error) {
+                console.error("Error al contactar con la IA de Gemini:", error);
+                const errorResponse = "Parece que hay un problema de conexión. Para una atención inmediata, por favor, llámanos al 999 999 999.";
+                chatHistory.push({ role: "user", parts: [{ text: userMessage }] });
+                chatHistory.push({ role: "model", parts: [{ text: errorResponse }] });
+                return errorResponse;
+            }
+        }
+    </script>
+</body>
+
+</html>
